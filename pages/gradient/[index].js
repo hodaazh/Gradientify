@@ -16,7 +16,7 @@ const Gradient = ({ id }) => {
   const [gradientColors, setGradientColors] = useState("");
   const colorSet = useColorSet();
   const { colors, active } = colorSet.find((item) => item.id == id);
-  const elementsRef = useRef(colors.map(() => useRef()));
+  const elementsRef = colors.map(() => useRef());
   const direction = useRotate();
   const setDirection = useRotateActions();
   const ref = useRef();
@@ -51,10 +51,10 @@ const Gradient = ({ id }) => {
         key={color.id}
         className={s.colorsWrapper}
         onMouseEnter={() =>
-          (elementsRef.current[index].current.style.opacity = 1)
+          (elementsRef[index].current.style.opacity = 1)
         }
         onMouseLeave={() =>
-          (elementsRef.current[index].current.style.opacity = 0)
+          (elementsRef[index].current.style.opacity = 0)
         }
         onClick={() => copyClipborad(color)}
       >
@@ -62,7 +62,7 @@ const Gradient = ({ id }) => {
           className={s.colorFulCircle}
           style={{ backgroundColor: `${color}` }}
         ></div>
-        <div ref={elementsRef.current[index]} className={"tooltip2"}>
+        <div ref={elementsRef[index]} className={"tooltip2"}>
           Copy {color}
         </div>
       </div>
