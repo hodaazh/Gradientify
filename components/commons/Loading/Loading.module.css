@@ -1,0 +1,42 @@
+.container div {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  margin-inline: 1rem;
+  background: linear-gradient(
+    90.92deg,
+    #774dff 2.63%,
+    #239eb9 48.37%,
+    #d73e87 88.04%
+  );
+  transition: all 0.3s;
+}
+.container div:first-child {
+  animation: scalable1 1.5s ease-in-out 0s infinite alternate;
+}
+.container div:nth-child(2) {
+  animation: scalable1 1.5s ease-in-out 0.25s infinite alternate;
+}
+.container div:last-child {
+  animation: scalable1 1.5s ease-in-out 0.5s infinite alternate;
+}
+
+@keyframes scalable1 {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+}

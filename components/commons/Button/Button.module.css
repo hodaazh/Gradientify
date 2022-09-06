@@ -1,0 +1,21 @@
+.container {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  position: relative;
+  padding: 0.6rem 0.75rem;
+  background: transparent;
+}
+.container.default {
+  font-size: 1.125rem;
+  border: 1px solid rgba(85, 85, 85, 1);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  line-height: 1.75rem;
+}
+.space {
+  width: 0.5rem;
+}

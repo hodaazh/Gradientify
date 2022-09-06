@@ -1,0 +1,82 @@
+.container {
+  padding: 5rem 0;
+  min-height: calc(100vh - 60px);
+  background-image: linear-gradient(
+    to top,
+    var(--blue-4),
+    var(--blue-3),
+    var(--green-blue-1),
+    var(--green-1),
+    var(--green-2)
+  );
+}
+.container > p:nth-child(2) {
+  font-size: 1.25rem;
+  margin: 1.25rem 0;
+}
+.icon {
+  color: #000;
+  font-size: 1.4rem;
+}
+.container p:nth-child(4) {
+  margin-top: 2rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+.container input {
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  color: #fff;
+  margin-inline: 1rem;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+.inputWrapper {
+  margin-top: 2rem;
+}
+.inputWrapper span {
+  border-radius: 0.2rem;
+  padding: 0.5rem;
+  width: 10rem;
+  background-color: var(--orange-1);
+  margin: 1rem auto;
+}
+.input {
+  color: #fff;
+  box-shadow: var(--box-shadow-1);
+}
+.input.darkText {
+  color: #000;
+}
+.container .button {
+  display: none;
+}
+.gradientCode {
+  padding: 1rem;
+  max-width: 40rem;
+  margin-inline: 2rem;
+  backdrop-filter: blur(9.5px);
+  background: rgba(255, 254, 254, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  box-shadow: 0 8px 32px 0 var(--blue-1);
+  margin-top: 1rem;
+}
+.gradientCode p {
+  line-height: 1.5;
+  color: #fff;
+  text-align: center;
+}
+@media only screen and (max-width: 768px) {
+  .inputWrapper {
+    margin-top: 1rem;
+  }
+  .inputWrapper > div:first-child {
+    flex-direction: column;
+  }
+  .input {
+    margin-top: 1.5rem;
+  }
+}

@@ -1,0 +1,90 @@
+.container {
+  padding: 3.75rem 0;
+}
+.header {
+  width: 85%;
+  align-items: center;
+  padding-inline: 5rem;
+  margin-bottom: 4.5rem;
+}
+.header h3 {
+  font-size: 1.75rem;
+  background: linear-gradient(
+    90.92deg,
+    #774dff 2.63%,
+    #239eb9 48.37%,
+    #d73e87 88.04%
+  );
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  max-width: 60%;
+}
+.header > div {
+  width: 6.25rem;
+  height: 6.25rem;
+  border-radius: 8px;
+  margin-left: 3rem;
+}
+.header input {
+  padding: 0.75rem;
+  color: rgb(85 85 85);
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000,
+    0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  width: 19.5rem;
+  height: 3.75rem;
+  border-radius: 8px;
+  border: 1px solid rgb(209 213 219);
+  margin-inline: 2rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+.header input::placeholder {
+  color: rgba(85, 85, 85, 0.5);
+}
+.generateTitle {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.generateBtn {
+  background-image: linear-gradient(
+    to bottom right,
+    #9333ea,
+    #3b82f6
+  ) !important;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem !important;
+  line-height: 1.5;
+  transition: all 0.3s;
+}
+.generateBtn:hover {
+  background-image: linear-gradient(
+    to bottom left,
+    #9333ea,
+    #3b82f6
+  ) !important;
+}
+
+@media only screen and (max-width: 1300px) {
+  .header {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .header {
+    flex-direction: column;
+    padding-inline: 0;
+  }
+  .header h1 {
+    text-align: center;
+  }
+  .header input,
+  .generateBtn {
+    margin: 1rem 0;
+  }
+  .header > div {
+    margin-left: 0;
+  }
+}

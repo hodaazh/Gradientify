@@ -1,0 +1,106 @@
+.container {
+  /* justify-content: center; */
+  align-items: center;
+  position: relative;
+  padding: 1.4rem 2.5rem;
+  font-size: 17px;
+  font-weight: 500;
+  height: 3.75rem;
+  max-width: 87rem;
+  margin: 0 auto;
+  background: linear-gradient(126.95deg, #91a2cd, #008716 51.69%),
+    linear-gradient(126.95deg, #fff, #00273d 49.48%),
+    radial-gradient(100% 216.55% at 100% 100%, #a4be00 0, #6100ff 100%),
+    linear-gradient(307.27deg, #1dac92 0.37%, #2800c6),
+    radial-gradient(100% 140% at 100% 0, #006c7a 57.29%, #20a 100%);
+  background-blend-mode: overlay, overlay, difference, difference, normal;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.container.toggleActive {
+  height: 17rem;
+}
+.container.toggleActive li::after {
+  display: none;
+}
+.container > div {
+  width: 100%;
+  margin-bottom: 1.75rem;
+}
+
+.container a {
+  color: #fff;
+}
+.container > a:first-child {
+  font-weight: 700;
+  font-size: 20px;
+}
+.container ul {
+  display: flex;
+  list-style: none;
+}
+.container li {
+  margin-inline: 1rem;
+  position: relative;
+  overflow: hidden;
+  padding: 0.2rem 0;
+}
+.container li:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  right: 100%;
+  background-color: #fff;
+  transition: transform 0.5s;
+}
+.container li:hover::after {
+  transform: translateX(210%);
+}
+.responsiveContainer li {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  text-align: center;
+}
+
+/*Responsive*/
+
+.line1,
+.line2,
+.line3 {
+  width: 1.2rem;
+  height: 2px;
+  background-color: #fff;
+  margin: 0.2rem;
+  transition: all 0.3s;
+}
+.HamburgerMenuContainer.toggleActive .line1 {
+  transform: rotate(-45deg) translate(-2px, 5px);
+}
+.HamburgerMenuContainer.toggleActive .line2 {
+  opacity: 0;
+}
+.HamburgerMenuContainer.toggleActive .line3 {
+  transform: rotate(45deg) translate(-2px, -5px);
+}
+.responsiveContainer {
+  width: 100%;
+}
+.responsiveContainer li {
+  padding: 0.5rem;
+  border: 1px solid rgb(118 77 255);
+  margin: 0.25rem 0;
+  border-radius: 0.4rem;
+}
+.responsiveContainer a {
+  color: rgb(130 130 138);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    padding: 1.4rem 1.5rem;
+  }
+}

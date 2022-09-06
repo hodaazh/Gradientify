@@ -1,0 +1,55 @@
+.container {
+  background-color: var(--clr-bg-1);
+}
+.container.dark {
+  background-color: var(--carbonic-light);
+}
+.gradients {
+  padding: 5.5rem 5rem;
+  text-align: center;
+}
+.gradients h2 {
+  font-size: 2.25rem;
+  background: linear-gradient(
+    90.92deg,
+    var(--blue-2) 2.63%,
+    var(--green-blue-1) 48.37%,
+    var(--pink-1) 88.04%
+  );
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  max-width: 60%;
+  margin: 0 auto 4.5rem auto;
+}
+.gradientItemsWrapper {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: auto;
+  grid-gap: 2rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  .gradients {
+    padding: 5.5rem 2rem;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .gradientItemsWrapper {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .gradients h2 {
+    max-width: 80%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .gradientItemsWrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media only screen and (max-width: 640px) {
+  .gradientItemsWrapper {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}

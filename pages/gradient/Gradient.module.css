@@ -1,0 +1,113 @@
+.container {
+  flex: 1;
+  box-shadow: var(--box-shadow-2);
+}
+.container h2 {
+  font-size: 3.75rem;
+  font-weight: 900;
+  margin: 0 auto 4.5rem auto;
+}
+.gradientColor {
+  height: 87vh;
+}
+.colorFulCircle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+.gradiendDesc {
+  background-color: rgba(51, 51, 51, 1);
+  border-color: rgb(68, 68, 68, 1);
+  width: 65%;
+  padding: 2rem 1.5rem 0rem 1.5rem;
+  border-radius: 0.4rem;
+  margin: 1.25rem auto 2.75rem auto;
+}
+.gradiendDesc > div span:nth-child(1) {
+  margin-right: 0.5rem;
+}
+.gradiendDesc > div {
+  margin-top: 0.7rem;
+}
+.gradientDescText {
+  padding: 1rem;
+  padding-bottom: 6rem;
+  background-color: var(--clr-primary);
+}
+.gradientDescText > div:nth-child(1) {
+  margin-bottom: 0.7rem;
+}
+.gradientDescText > div:nth-child(2) > span:first-child {
+  margin-bottom: 0.5rem;
+}
+.container footer {
+  padding: 1.5rem 0;
+}
+.footerLeft > div {
+  margin-right: 1.25rem;
+  position: relative;
+  overflow: hidden;
+  padding: 0.3rem 0;
+}
+.footerLeft > div::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  right: 100%;
+  background-color: #fff;
+  transition: transform 0.5s;
+}
+.footerLeft > div:hover::after {
+  transform: translateX(210%);
+}
+.container footer span {
+  color: rgb(250 250 250);
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.downloadBtn,
+.saveBtn {
+  border: 1px solid var(--gray-2);
+  border-radius: 0.3rem;
+  margin-right: 1rem;
+  background-color: rgb(24 23 24) !important;
+  width: 9rem;
+}
+.saveBtn_title.activeColor {
+  color: var(--yellow) !important;
+}
+.saveBtn_icon.activeColor {
+  color: var(--yellow) !important;
+}
+.colorsWrapper {
+  position: relative;
+}
+
+@media only screen and (max-width: 1200px) {
+  .gradiendDesc {
+    width: 75%;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .gradiendDesc {
+    width: 85%;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .container footer {
+    flex-direction: column;
+  }
+  .footerLeft {
+    margin-bottom: 1rem;
+  }
+  .footerRight {
+    flex-direction: column;
+  }
+  .downloadBtn {
+    margin-top: 0.3rem;
+  }
+}

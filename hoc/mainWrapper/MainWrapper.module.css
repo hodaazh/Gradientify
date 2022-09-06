@@ -1,0 +1,162 @@
+.mainDesc {
+  display: flex;
+  padding: 7rem 2.5rem;
+  background-image: url("https://gradientify.com/static/media/bg-aurora4.3b87804fabcfb32a2019.png");
+  background-repeat: no-repeat;
+}
+.mainDesc h1 {
+  font-size: 3.3rem;
+  margin-bottom: 1.25rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.mainDesc > div {
+  display: flex;
+  flex: 1;
+}
+.mainDescLeft {
+  display: flex;
+  flex-direction: column;
+}
+.mainDescLeft p {
+  font-size: 20px;
+  line-height: 1.25;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+.mainDescRight {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  position: relative;
+  pointer-events: none;
+}
+.mainDescRight img {
+  width: 100%;
+  height: 90%;
+}
+.mainDescBtnWrapper {
+  display: flex;
+}
+.tryGradientBtn {
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 1.5rem;
+  border-radius: 26px;
+  background-color: var(--yellow-dark);
+  color: rgb(25 25 37 /1);
+  border: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-right: 1rem;
+}
+.tryGradientBtn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 40%;
+  transform: skew(-20deg);
+  background-color: var(--gray-1);
+  right: 100%;
+  transition: all 0.3s;
+}
+.tryGradientBtn:hover {
+  background-color: var(--yellow-light);
+}
+.tryGradientBtn:hover::after {
+  transform: skew(-20deg) translateX(410%);
+}
+.productHuntBtn {
+  width: 15.5rem;
+  height: 3.1rem;
+  border: none;
+  background-color: transparent;
+}
+.middleNavContainer {
+  padding: 1.25rem 2.5rem;
+}
+.middleNavContainer span {
+  color: var(--clr-middleNavbar-text);
+}
+.middleNavContainer.dark {
+  background-color: var(--clr-dark-1) !important;
+}
+.middleNavContainer.dark span {
+  color: #fff;
+}
+.middleNavContainer i {
+  color: var(--clr-middleNavbar-text) !important;
+}
+.middleNavContainer.dark i {
+  color: #fff !important;
+}
+.rotateBtn {
+  margin-inline: 1rem;
+}
+.plusBtn {
+  margin-inline: 1rem;
+}
+.input {
+  border: 1px solid var(--gray-2);
+  border-radius: 0.5rem;
+  line-height: 1.75rem;
+  padding: 0.6rem 0.75rem;
+  color: #fff;
+}
+.input::placeholder {
+  font-size: 1.125rem;
+}
+@media only screen and (max-width: 1200px) {
+  .mainDesc {
+    flex-direction: column;
+    padding: 2.5rem;
+  }
+  .mainDescRight {
+    margin-top: 1.2rem;
+    justify-content: center;
+  }
+  .mainDescRight img {
+    width: 25rem;
+    height: 15rem;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .mainDesc {
+    padding: 1.5rem;
+  }
+  .mainDescRight img {
+    width: 21.5rem;
+    height: 12rem;
+  }
+  .middleNavContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .middleNavContainer span {
+    font-size: 0.9rem !important;
+  }
+  .middleNavContainer div {
+    margin: 0.25rem 0;
+  }
+  .middleNavContainer > div:last-child {
+    order: -1;
+  }
+  .mainDescBtnWrapper {
+    flex-direction: column;
+  }
+  .tryGradientBtn {
+    width: fit-content;
+    margin-bottom: 0.5rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .bookmark_title,
+  .rotate_title,
+  .newGradient_title {
+    display: none;
+  }
+  .input {
+    display: none;
+  }
+}
