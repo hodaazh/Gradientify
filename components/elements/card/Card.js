@@ -16,7 +16,7 @@ const Card = ({ colors, id, gradient_colors }) => {
   const elementRef = useRef();
   const refCopyCss = useRef();
   const refCopyTextCss = useRef();
-  const elementsRef = useRef(colors.map(() => useRef()));
+  const elementsRef = colors.map(() => useRef());
   const [strGradientColors] = useState(colors.toString());
   const direction = useRotate();
   const colorSet = useColorSet();
@@ -47,16 +47,12 @@ const Card = ({ colors, id, gradient_colors }) => {
       <div
         key={color.id}
         className={s.colorsWrapper}
-        onMouseEnter={() =>
-          (elementsRef.current[index].current.style.opacity = 1)
-        }
-        onMouseLeave={() =>
-          (elementsRef.current[index].current.style.opacity = 0)
-        }
+        onMouseEnter={() => (elementsRef[index].current.style.opacity = 1)}
+        onMouseLeave={() => (elementsRef[index].current.style.opacity = 0)}
         onClick={() => copyClipborad(color)}
       >
         <div className={s.circle} style={{ backgroundColor: `${color}` }}></div>
-        <div ref={elementsRef.current[index]} className={"tooltip2"}>
+        <div ref={elementsRef[index]} className={"tooltip2"}>
           Copy {color}
         </div>
       </div>
