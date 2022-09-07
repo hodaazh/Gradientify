@@ -4,11 +4,13 @@ import cn from "classnames";
 
 import s from "./MainWrapper.module.css";
 import { Button } from "../../components/commons";
-import { useRotateGradient, useTheme, useMobile } from "../../hooks";
+import { useTheme, useMobile } from "../../hooks";
 import { useRotate, useRotateActions } from "../../context";
+import utils from "../../utils/utils";
 
 const MainWrapper = (Component, props) => (componentProps) => {
   const { theme, gradient_colors } = componentProps.cookies;
+  const { rotateArray } = utils;
   const { handleTheme, defaultTheme } = useTheme(theme);
   const [hex, setHex] = useState("");
   const [client, setClient] = useState({ x: 0, y: 0 });
@@ -19,7 +21,7 @@ const MainWrapper = (Component, props) => (componentProps) => {
   const isPhone = useMobile("phone");
 
   const directionRotate = () => {
-    setDirection(useRotateGradient(direction));
+    setDirection(rotateArray(direction));
   };
 
   const handleSerachHex = (e) => {

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, createRef } from "react";
 import Link from "next/link";
 import cn from "classnames";
 import AOS from "aos";
@@ -16,7 +16,7 @@ const Card = ({ colors, id, gradient_colors }) => {
   const elementRef = useRef();
   const refCopyCss = useRef();
   const refCopyTextCss = useRef();
-  const elementsRef = colors.map(() => useRef());
+  const elementsRef = colors.map(() => createRef());
   const [strGradientColors] = useState(colors.toString());
   const direction = useRotate();
   const colorSet = useColorSet();

@@ -7,7 +7,7 @@ import { Button } from "../../components/commons";
 import { SimpleCard } from "../../components/elements";
 import utils from "../../utils/utils";
 
-const tintsShades = () => {
+const TintsShades = () => {
   const [input, setInput] = useState("#f15025");
   const { generateColors, validColor } = utils;
   const [correct, setCorrect] = useState(true);
@@ -67,4 +67,4 @@ const tintsShades = () => {
   );
 };
 
-export default tintsShades;
+export default TintsShades;

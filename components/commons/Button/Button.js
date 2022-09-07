@@ -1,6 +1,5 @@
 import cn from "classnames";
 import Link from "next/link";
-// import Loader from "react-loader-spinner";
 
 import s from "./Button.module.css";
 
@@ -9,14 +8,9 @@ const Button = ({
   buttonType = "button",
   href,
   className,
-  theme = 1,
   loading,
-  reverse,
   disable,
-  primary,
-  large,
   withBorder,
-  highlight,
   onClick = () => false,
   onMouseOver = () => false,
   onMouseLeave = () => false,
@@ -31,7 +25,6 @@ const Button = ({
   const Container = { link: "a", a: "a", button: "button" }[
     type === "link" && !href ? "a" : type
   ];
-  const themeClass = `-theme-${theme}`;
 
   const _render = () => {
     return (
@@ -78,11 +71,6 @@ const Button = ({
             {title}
           </span>
         ) : null}
-        {loading && (
-          <div className={s.loadingIndicator}>
-            <Loader type="TailSpin" width={20} height={20} color={"#fff"} />
-          </div>
-        )}
       </Container>
     );
   };

@@ -1,10 +1,10 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, createRef } from "react";
 import cn from "classnames";
 import { toast } from "react-toastify";
 
 import s from "./Gradient.module.css";
 import { Button } from "../../components/commons";
-import { useRotateGradient, useBookmark } from "../../hooks";
+import { useBookmark } from "../../hooks";
 import {
   useRotate,
   useRotateActions,
@@ -16,12 +16,12 @@ const Gradient = ({ id }) => {
   const [gradientColors, setGradientColors] = useState("");
   const colorSet = useColorSet();
   const { colors, active } = colorSet.find((item) => item.id == id);
-  const elementsRef = colors.map(() => useRef());
+  const elementsRef = colors.map(() => createRef());
   const direction = useRotate();
   const setDirection = useRotateActions();
   const ref = useRef();
   const { _renderBookmark } = useBookmark();
-  const { _export } = utils;
+  const { _export, rotateArray } = utils;
 
   useEffect(() => {
     setGradientColors(colors.toString());
@@ -32,7 +32,7 @@ const Gradient = ({ id }) => {
   }, [gradientColors]);
 
   const directionRotate = () => {
-    setDirection(useRotateGradient(direction));
+    setDirection(rotateArray(direction));
     ref.current.style.backgroundImage = `linear-gradient(to ${direction[0].dir},${gradientColors})`;
   };
 
@@ -50,12 +50,8 @@ const Gradient = ({ id }) => {
       <div
         key={color.id}
         className={s.colorsWrapper}
-        onMouseEnter={() =>
-          (elementsRef[index].current.style.opacity = 1)
-        }
-        onMouseLeave={() =>
-          (elementsRef[index].current.style.opacity = 0)
-        }
+        onMouseEnter={() => (elementsRef[index].current.style.opacity = 1)}
+        onMouseLeave={() => (elementsRef[index].current.style.opacity = 0)}
         onClick={() => copyClipborad(color)}
       >
         <div

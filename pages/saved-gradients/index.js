@@ -40,7 +40,7 @@ const SavedGradients = () => {
       </div>
       {!emptyList && (
         <div className={s.gradients}>
-          <h2>Uh Oh! You have n't saved any gradient!</h2>
+          <h2>Uh Oh! You have not saved any gradient!</h2>
         </div>
       )}
     </div>
