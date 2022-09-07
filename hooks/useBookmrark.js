@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useColorSet, useColorSetActions } from "../context/RotateProvider";
+import { HOME_CONST } from "../constants";
 
 const useBookmark = () => {
+  const { gradientItems } = HOME_CONST;
   const colorSet = useColorSet();
   const setColorSet = useColorSetActions();
 
