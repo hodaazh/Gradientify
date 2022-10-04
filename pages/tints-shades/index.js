@@ -2,7 +2,7 @@ import { useState } from "react";
 import cn from "classnames";
 import { toast } from "react-toastify";
 
-import s from "./tintsShades.module.css";
+import s from "./TintsShades.module.css";
 import { Button } from "../../components/commons";
 import { SimpleCard } from "../../components/elements";
 import utils from "../../utils/utils";
