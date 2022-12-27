@@ -13,6 +13,7 @@ function MyApp({ Component, pageProps }) {
         hideProgressBar={true}
         closeOnClick
         position="top-center"
+        className="flex flex-column"
       />
     </RotateProvider>
   );

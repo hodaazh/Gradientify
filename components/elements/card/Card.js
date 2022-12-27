@@ -34,6 +34,7 @@ const Card = ({ colors, id, gradient_colors }) => {
   }, [direction, strGradientColors]);
 
   const copyClipborad = (x) => {
+    toast.dismiss();
     x === "cssText"
       ? navigator.clipboard.writeText(
           `background:linear-gradient(to ${direction[0].dir}${strGradientColors})`
