@@ -15,7 +15,7 @@ import { useBookmark } from "../../../hooks";
 const Card = ({ colors, id, gradient_colors }) => {
   const elementRef = useRef();
   const refCopyCss = useRef();
-  const refCopyTextCss = useRef();
+  // const refCopyTextCss = useRef();
   const elementsRef = colors.map(() => createRef());
   const [strGradientColors] = useState(colors.toString());
   const direction = useRotate();
@@ -97,17 +97,6 @@ const Card = ({ colors, id, gradient_colors }) => {
             <p onClick={() => copyClipborad("cssText")}>Copy Css</p>
             <div ref={refCopyCss} className="tooltip">
               Copy Css
-            </div>
-          </div>
-
-          <div
-            className={s.copyTextCssWrapper}
-            onMouseEnter={() => (refCopyTextCss.current.style.opacity = 1)}
-            onMouseLeave={() => (refCopyTextCss.current.style.opacity = 0)}
-          >
-            <p>Copy Text Css</p>
-            <div ref={refCopyTextCss} className="tooltip2">
-              Copy Text Css
             </div>
           </div>
         </div>

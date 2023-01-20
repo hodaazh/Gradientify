@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import cn from "classnames";
 import Link from "next/link";
 import { toast } from "react-toastify";
@@ -10,47 +10,48 @@ import utils from "../../../utils/utils";
 const SpecificCard = ({ colorSet }) => {
   const { _export } = utils;
   const ref = useRef();
-  const [gradientColor, setGradientColor] = useState("");
-  const [background, setBackground] = useState("");
 
-  let colorr = "";
+  const copyClipborad = () => {
+    navigator.clipboard.writeText(
+      `background:${colorSet.reduce(
+        (prevValue, currentValue, currentIndex) =>
+          prevValue +
+          `radial-gradient(at ${currentValue.startPoint},${
+            currentValue.color1
+          } 0,${currentValue.color2} 50%)${
+            currentIndex < colorSet.length - 1 ? `,` : ``
+          }`,
 
-  useEffect(() => {
-    setGradientColor(colorr);
-    setBackground(colorSet[0].mainColor);
-  }, [colorr]);
+        ""
+      )}`
+    );
 
-  colorSet.map((color, index) => {
-    colorr =
-      colorr +
-      `radial-gradient(at ${color.startPoint},${color.color1} 0,${
-        color.color2
-      } 50%)${index < colorSet.length - 1 ? `,` : ``}`;
-  });
-
-  const copyClipborad = (x) => {
-    x === "cssText"
-      ? navigator.clipboard.writeText(`background:${gradientColor}`)
-      : navigator.clipboard.writeText(x);
     toast.success("copied to clipboard");
   };
-
-  if (!gradientColor) return <Loading />;
 
   return (
     <div className={s.container}>
       <div
         ref={ref}
         className={s.headerWrapper}
-        style={{ backgroundColor: background }}
+        // style={{ backgroundColor: colorSet[0].mainColor }}
       >
         <Link href="#">
           <a>
             <header
               className={s.header}
-              style={{
-                backgroundImage: gradientColor,
-              }}
+              // style={{
+              //   backgroundImage: colorSet.reduce(
+              //     (prevValue, currentValue, currentIndex) =>
+              //       prevValue +
+              //       `radial-gradient(at ${currentValue.startPoint},${
+              //         currentValue.color1
+              //       } 0,${currentValue.color2} 50%)${
+              //         currentIndex < colorSet.length - 1 ? `,` : ``
+              //       }`,
+              //     ""
+              //   ),
+              // }}
             ></header>
           </a>
         </Link>
@@ -59,8 +60,8 @@ const SpecificCard = ({ colorSet }) => {
         className={cn("flex-row", "align-base", "justify-between", s.footer)}
       >
         <div className={cn("flex-row", "justify-between", "align-base")}>
-          <p onClick={() => copyClipborad("cssText")}>Copy Css</p>
-          <p onClick={() => _export(ref, "pdf", "my-gradient")}>download</p>
+          <p onClick={() => copyClipborad()}>Copy Css</p>
+          <p onClick={() => _export(ref, "pdf", "my-gradient")}>Download</p>
         </div>
       </footer>
     </div>

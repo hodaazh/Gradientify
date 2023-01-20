@@ -54,9 +54,6 @@
 .footer p:hover::after {
   transform: translateX(210%);
 }
-.copyCssWrapper {
-  margin-inline: 1rem;
-}
 .bookmarkIconWrapper {
   position: absolute;
   width: 2.4rem;
@@ -70,7 +67,6 @@
   color: White;
 }
 .copyCssWrapper,
-.copyTextCssWrapper,
 .colorsWrapper {
   position: relative;
   text-align: initial;

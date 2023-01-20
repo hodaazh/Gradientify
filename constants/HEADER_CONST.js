@@ -12,7 +12,7 @@ const HEADER_CONST = {
     },
     {
       id: 3,
-      title: "specific gradients",
+      title: "Specific gradients",
       href: "/specific-gradient",
     },
     {
