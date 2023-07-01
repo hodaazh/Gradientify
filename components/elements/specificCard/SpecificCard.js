@@ -34,24 +34,24 @@ const SpecificCard = ({ colorSet }) => {
       <div
         ref={ref}
         className={s.headerWrapper}
-        // style={{ backgroundColor: colorSet[0].mainColor }}
+        style={{ backgroundColor: colorSet[0].mainColor }}
       >
         <Link href="#">
           <a>
             <header
               className={s.header}
-              // style={{
-              //   backgroundImage: colorSet.reduce(
-              //     (prevValue, currentValue, currentIndex) =>
-              //       prevValue +
-              //       `radial-gradient(at ${currentValue.startPoint},${
-              //         currentValue.color1
-              //       } 0,${currentValue.color2} 50%)${
-              //         currentIndex < colorSet.length - 1 ? `,` : ``
-              //       }`,
-              //     ""
-              //   ),
-              // }}
+              style={{
+                backgroundImage: colorSet.reduce(
+                  (prevValue, currentValue, currentIndex) =>
+                    prevValue +
+                    `radial-gradient(at ${currentValue.startPoint},${
+                      currentValue.color1
+                    } 0,${currentValue.color2} 50%)${
+                      currentIndex < colorSet.length - 1 ? `,` : ``
+                    }`,
+                  ""
+                ),
+              }}
             ></header>
           </a>
         </Link>
@@ -61,7 +61,7 @@ const SpecificCard = ({ colorSet }) => {
       >
         <div className={cn("flex-row", "justify-between", "align-base")}>
           <p onClick={() => copyClipborad()}>Copy Css</p>
-          <p onClick={() => _export(ref, "pdf", "my-gradient")}>Download</p>
+          <p onClick={() => _export(ref, "my-gradient")}>Download</p>
         </div>
       </footer>
     </div>

@@ -1,6 +1,7 @@
 import html2canvas from "html2canvas";
 import chroma from "chroma-js";
 import { jsPDF } from "jspdf";
+import { toPng } from "html-to-image";
 
 class Utils {
   rotateArray = (n) => {
@@ -60,26 +61,38 @@ class Utils {
     return /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}|[A-Fa-f0-9]{4})$/i.test(color);
   }
 
-  _export = (ref, type, name) => {
-    html2canvas(ref.current).then((canvas) => {
-      let dataURL = canvas.toDataURL("image/png");
+  // _export = (ref, type, name) => {
+  //   html2canvas(ref.current).then((canvas) => {
+  //     let dataURL = canvas.toDataURL("image/png");
 
-      if (type === "pdf") {
-        const pdf = new jsPDF({
-          orientation: "landscape",
-          unit: "in",
-          format: [14, 10],
-        });
+  //     if (type === "pdf") {
+  //       const pdf = new jsPDF({
+  //         orientation: "landscape",
+  //         unit: "in",
+  //         format: [14, 10],
+  //       });
 
-        pdf.addImage(dataURL, "PNG", 0, 0);
-        pdf.save(`${name}.pdf`);
-      } else if (type === "png") {
-        var link = document.createElement("a");
-        link.download = `${name}.png`;
-        link.href = dataURL;
+  //       pdf.addImage(dataURL, "PNG", 0, 0);
+  //       pdf.save(`${name}.pdf`);
+  //     } else if (type === "png") {
+  //       var link = document.createElement("a");
+  //       link.download = `${name}.png`;
+  //       link.href = dataURL;
+  //       link.click();
+  //     }
+  //   });
+  // };
+  _export = async (el, imageFileName) => {
+    toPng(el.current, { cacheBust: false })
+      .then((dataUrl) => {
+        const link = document.createElement("a");
+        link.download = imageFileName;
+        link.href = dataUrl;
         link.click();
-      }
-    });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 }
 
