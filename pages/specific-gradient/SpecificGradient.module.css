@@ -7,6 +7,22 @@
   grid-auto-rows: auto;
   grid-gap: 2rem;
 }
+.specificCard {
+  width: 100vw;
+  height: 75vh;
+}
+.downloadBtn {
+  margin: 2rem auto;
+  border: 1px solid var(--gray-2);
+  border-radius: 0.3rem;
+  background-color: rgb(24 23 24) !important;
+  width: 9rem;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+.downloadBtn:hover {
+  box-shadow: var(--box-shadow-3);
+}
 @media only screen and (max-width: 1024px) {
   .container {
     grid-template-columns: repeat(3, minmax(0, 1fr));

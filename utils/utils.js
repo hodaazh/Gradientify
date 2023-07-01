@@ -1,6 +1,4 @@
-import html2canvas from "html2canvas";
 import chroma from "chroma-js";
-import { jsPDF } from "jspdf";
 import { toPng } from "html-to-image";
 
 class Utils {
@@ -17,7 +15,6 @@ class Utils {
     }
 
     var num = parseInt(col, 16);
-
     var r = (num >> 16) + amt;
 
     if (r > 255) r = 255;
@@ -57,31 +54,20 @@ class Utils {
   }
 
   validColor(color) {
-    // return /^#([0-9a-f]{3}){1,2}$/i.test(color);
     return /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}|[A-Fa-f0-9]{4})$/i.test(color);
   }
-
-  // _export = (ref, type, name) => {
-  //   html2canvas(ref.current).then((canvas) => {
-  //     let dataURL = canvas.toDataURL("image/png");
-
-  //     if (type === "pdf") {
-  //       const pdf = new jsPDF({
-  //         orientation: "landscape",
-  //         unit: "in",
-  //         format: [14, 10],
-  //       });
-
-  //       pdf.addImage(dataURL, "PNG", 0, 0);
-  //       pdf.save(`${name}.pdf`);
-  //     } else if (type === "png") {
-  //       var link = document.createElement("a");
-  //       link.download = `${name}.png`;
-  //       link.href = dataURL;
-  //       link.click();
-  //     }
-  //   });
-  // };
+  convertColorsToStr(colorSet) {
+    return colorSet.reduce(
+      (prevValue, currentValue, currentIndex) =>
+        prevValue +
+        `radial-gradient(at ${currentValue.startPoint},${
+          currentValue.color1
+        } 0,${currentValue.color2} 50%)${
+          currentIndex < colorSet.length - 1 ? `,` : ``
+        }`,
+      ""
+    );
+  }
   _export = async (el, imageFileName) => {
     toPng(el.current, { cacheBust: false })
       .then((dataUrl) => {

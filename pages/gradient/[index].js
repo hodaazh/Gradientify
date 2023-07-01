@@ -120,7 +120,7 @@ const Gradient = ({ id }) => {
             <Button
               title="Download"
               className={s.downloadBtn}
-              onClick={() => _export(ref, "pdf", "my-gradient")}
+              onClick={() => _export(ref, "img", "my-gradient")}
             />
           </div>
         </footer>

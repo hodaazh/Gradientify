@@ -9,9 +9,11 @@ const SpecificGradient = () => {
 
   return (
     <div className={cn("flex-center", "flex-wrap", s.container)}>
-      {gradients.map((item) => (
-        <SpecificCard key={item.id} colorSet={item} />
-      ))}
+      {gradients.map((item) => {
+        return item.map(({ id, colors }) => (
+          <SpecificCard key={id} {...{ colors, id }} />
+        ));
+      })}
     </div>
   );
 };
