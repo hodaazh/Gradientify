@@ -80,7 +80,7 @@ const MainWrapper = (Component, props) => (componentProps) => {
           {!isPhone && (
             <input
               placeholder="Search Hex"
-              className={s.input}
+              className={cn(s.input, { [s.sun]: !defaultTheme })}
               onChange={handleSerachHex}
             />
           )}

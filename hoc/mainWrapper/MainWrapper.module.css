@@ -102,6 +102,10 @@
   line-height: 1.75rem;
   padding: 0.6rem 0.75rem;
   color: #fff;
+  font-size: 1rem;
+}
+.input.sun {
+  color: #000;
 }
 .input::placeholder {
   font-size: 1.125rem;
