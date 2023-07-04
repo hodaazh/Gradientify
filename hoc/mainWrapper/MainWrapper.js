@@ -1,5 +1,4 @@
 import { useState, useRef } from "react";
-import Link from "next/link";
 import cn from "classnames";
 
 import s from "./MainWrapper.module.css";
@@ -42,7 +41,7 @@ const MainWrapper = (Component, props) => (componentProps) => {
   };
 
   return (
-    <div onMouseMove={handleMoveImage}>
+    <div className={s.container} onMouseMove={handleMoveImage}>
       <section className={cn("container", s.mainDesc)}>
         <div className={s.mainDescLeft}>
           <h1>Find the Perfect gradient for your next projects</h1>
@@ -66,48 +65,48 @@ const MainWrapper = (Component, props) => (componentProps) => {
         </div>
       </section>
       <section
-        className={cn("container", "justify-between", s.middleNavContainer, {
+        className={cn(s.middleNavContainer, {
           [s.dark]: defaultTheme,
         })}
       >
-        <div className="flex-row">
-          {/* <Button title="All Gradient" type="link" href="/" withBorder /> */}
-          <Button
-            icon="spinner"
-            title={isPhone ? "" : "Rotate"}
-            className={s.rotateBtn}
-            onClick={directionRotate}
-            withBorder
-          />
-          {!isPhone && (
-            <input
-              placeholder="Search Hex"
-              className={cn(s.input, { [s.sun]: !defaultTheme })}
-              onChange={handleSerachHex}
+        <div className={cn(s.middleNav, "container", "justify-between")}>
+          <div className="flex-row">
+            <Button
+              icon="spinner"
+              title={isPhone ? "" : "Rotate"}
+              onClick={directionRotate}
+              withBorder
             />
-          )}
-        </div>
-        <div className="flex-row">
-          <Button
-            icon="bookmark-solid"
-            title={isPhone ? "" : "Save Gradients"}
-            type="link"
-            href="/saved-gradients"
-            withBorder
-          />
-          <Button
-            icon="plus"
-            title={isPhone ? "" : "New Gradients"}
-            className={s.plusBtn}
-            href="/new-gradients"
-            type="link"
-            withBorder
-          />
-          <Button
-            icon={defaultTheme ? "moon" : "sun"}
-            onClick={handleTheme}
-            withBorder
-          />
+            {!isPhone && (
+              <input
+                placeholder="Search Hex"
+                className={cn(s.input, { [s.sun]: !defaultTheme })}
+                onChange={handleSerachHex}
+              />
+            )}
+          </div>
+          <div className="flex-row">
+            <Button
+              icon="bookmark-solid"
+              title={isPhone ? "" : "Save Gradients"}
+              type="link"
+              href="/saved-gradients"
+              withBorder
+            />
+            <Button
+              icon="plus"
+              title={isPhone ? "" : "New Gradients"}
+              className={s.plusBtn}
+              href="/new-gradients"
+              type="link"
+              withBorder
+            />
+            <Button
+              icon={defaultTheme ? "moon" : "sun"}
+              onClick={handleTheme}
+              withBorder
+            />
+          </div>
         </div>
       </section>
       <Component

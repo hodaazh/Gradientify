@@ -1,7 +1,9 @@
+.container {
+  background: linear-gradient(to left, #c9bef3, #ffe5f9);
+}
 .mainDesc {
   display: flex;
   padding: 7rem 2.5rem;
-  background: linear-gradient(to left, #c9bef3, #ffe5f9);
 }
 .mainDesc h1 {
   font-size: 3.3rem;
@@ -72,6 +74,9 @@
   background-color: transparent;
 }
 .middleNavContainer {
+  background-color: #fff;
+}
+.middleNavContainer {
   padding: 1.25rem 2.5rem;
 }
 .middleNavContainer span {
@@ -89,9 +94,6 @@
 .middleNavContainer.dark i {
   color: #fff !important;
 }
-.rotateBtn {
-  margin-inline: 1rem;
-}
 .plusBtn {
   margin-inline: 1rem;
 }
@@ -102,6 +104,7 @@
   padding: 0.6rem 0.75rem;
   color: #fff;
   font-size: 1rem;
+  margin-left: 1rem;
 }
 .input.sun {
   color: #000;
@@ -132,17 +135,17 @@
     width: 21.5rem;
     height: 12rem;
   }
-  .middleNavContainer {
+  .middleNav {
     flex-direction: column;
     align-items: center;
   }
-  .middleNavContainer span {
+  .middleNav span {
     font-size: 0.9rem !important;
   }
-  .middleNavContainer div {
+  .middleNav div {
     margin: 0.25rem 0;
   }
-  .middleNavContainer > div:last-child {
+  .middleNav > div:last-child {
     order: -1;
   }
   .mainDescBtnWrapper {
