@@ -99,6 +99,8 @@ const MainWrapper = (Component, props) => (componentProps) => {
             icon="plus"
             title={isPhone ? "" : "New Gradients"}
             className={s.plusBtn}
+            href="/new-gradients"
+            type="link"
             withBorder
           />
           <Button

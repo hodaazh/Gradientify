@@ -79,6 +79,8 @@ h2 {
 .Toastify__toast-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  top: 1rem;
 }
 .Toastify__toast--error,
 .Toastify__toast--success {
