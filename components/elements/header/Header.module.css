@@ -1,13 +1,10 @@
 .container {
-  /* justify-content: center; */
   align-items: center;
   position: relative;
   padding: 1.4rem 2.5rem;
   font-size: 17px;
   font-weight: 500;
   height: 3.75rem;
-  max-width: 87rem;
-  margin: 0 auto;
   background: linear-gradient(126.95deg, #91a2cd, #008716 51.69%),
     linear-gradient(126.95deg, #fff, #00273d 49.48%),
     radial-gradient(100% 216.55% at 100% 100%, #a4be00 0, #6100ff 100%),

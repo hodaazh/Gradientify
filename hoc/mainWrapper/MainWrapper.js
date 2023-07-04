@@ -9,16 +9,16 @@ import { useRotate, useRotateActions } from "../../context";
 import utils from "../../utils/utils";
 
 const MainWrapper = (Component, props) => (componentProps) => {
-  const { theme, gradient_colors } = componentProps.cookies;
+  const imgRef = useRef();
+  const scrollRef = useRef();
+  const isPhone = useMobile("phone");
   const { rotateArray } = utils;
+  const { theme, gradient_colors } = componentProps.cookies;
   const { handleTheme, defaultTheme } = useTheme(theme);
   const [hex, setHex] = useState("");
   const [client, setClient] = useState({ x: 0, y: 0 });
-  const imgRef = useRef();
   const direction = useRotate();
   const setDirection = useRotateActions();
-
-  const isPhone = useMobile("phone");
 
   const directionRotate = () => {
     setDirection(rotateArray(direction));
@@ -35,8 +35,14 @@ const MainWrapper = (Component, props) => (componentProps) => {
     }px) rotate(0.0001deg)`;
   };
 
+  const scrollBottom = (e) => {
+    e.current.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <div className={cn("container", s.container)} onMouseMove={handleMoveImage}>
+    <div onMouseMove={handleMoveImage}>
       <section className={cn("container", s.mainDesc)}>
         <div className={s.mainDescLeft}>
           <h1>Find the Perfect gradient for your next projects</h1>
@@ -47,15 +53,11 @@ const MainWrapper = (Component, props) => (componentProps) => {
             gradient, and easily makes tints and shades of a single color.
           </p>
           <div className={s.mainDescBtnWrapper}>
-            <button className={s.tryGradientBtn}>
-              <Link href="#">
-                <a>Try Gradientify</a>
-              </Link>
-            </button>
-            <button className={s.productHuntBtn}>
-              <a href="#">
-                <img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=355830&amp;theme=dark&amp;period=daily" />
-              </a>
+            <button
+              className={s.tryGradientBtn}
+              onClick={() => scrollBottom(scrollRef)}
+            >
+              Try Gradientify
             </button>
           </div>
         </div>
@@ -69,7 +71,7 @@ const MainWrapper = (Component, props) => (componentProps) => {
         })}
       >
         <div className="flex-row">
-          <Button title="All Gradient" type="link" href="/" withBorder />
+          {/* <Button title="All Gradient" type="link" href="/" withBorder /> */}
           <Button
             icon="spinner"
             title={isPhone ? "" : "Rotate"}
@@ -108,7 +110,7 @@ const MainWrapper = (Component, props) => (componentProps) => {
       </section>
       <Component
         {...componentProps}
-        {...{ hex, defaultTheme, gradient_colors }}
+        {...{ hex, defaultTheme, gradient_colors, scrollRef }}
       />
     </div>
   );

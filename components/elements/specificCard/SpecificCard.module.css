@@ -74,6 +74,17 @@
 .footer p:hover::after {
   transform: translateX(210%);
 }
+.colorUsedWrapper {
+  display: flex;
+  flex: 1;
+  max-width: 10rem;
+  justify-content: end;
+}
+.colorUsed {
+  width: 0.7rem !important;
+  height: 0.7rem;
+  border-radius: 50%;
+}
 @media only screen and (max-width: 1330px) {
   .footer {
     height: 33%;

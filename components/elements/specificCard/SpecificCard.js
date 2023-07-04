@@ -15,6 +15,20 @@ const SpecificCard = ({ id, colors: colorSet }) => {
     toast.success("copied to clipboard");
   };
 
+  const showUsedColors = () => {
+    return (
+      <ul className={cn(s.colorUsedWrapper, "flex-row")}>
+        {colorSet.map((color, index) => (
+          <div
+            key={index}
+            className={s.colorUsed}
+            style={{ background: `${color.color1}` }}
+          ></div>
+        ))}
+      </ul>
+    );
+  };
+
   return (
     <div className={s.container}>
       <div
@@ -42,7 +56,7 @@ const SpecificCard = ({ id, colors: colorSet }) => {
       >
         <div className={cn("flex-row", "justify-between", "align-base")}>
           <p onClick={() => copyClipborad()}>Copy Css</p>
-          <p>Download</p>
+          {showUsedColors()}
         </div>
       </footer>
     </div>

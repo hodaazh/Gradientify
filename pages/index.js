@@ -9,7 +9,7 @@ import { HOME_CONST } from "../constants";
 import MainWrapper from "../hoc/mainWrapper/MainWrapper";
 import { useColorSet, useColorSetActions } from "../context/RotateProvider";
 
-const Home = ({ hex, defaultTheme }) => {
+const Home = ({ hex, defaultTheme, scrollRef }) => {
   const { gradientItems } = HOME_CONST;
   const colorSet = useColorSet();
   const setColorSet = useColorSetActions();
@@ -32,8 +32,11 @@ const Home = ({ hex, defaultTheme }) => {
     return <div className="flex-center">{/* <Loading />; */}</div>;
 
   return (
-    <div className={cn("container", s.container, { [s.dark]: defaultTheme })}>
-      <section className={cn("flex-column", s.gradients)}>
+    <div
+      className={cn(s.container, { [s.dark]: defaultTheme })}
+      ref={scrollRef}
+    >
+      <section className={cn("container", "flex-column", s.gradients)}>
         <h2>
           100+ Carefully Crafted Gradients ready to use in your next projects.
         </h2>

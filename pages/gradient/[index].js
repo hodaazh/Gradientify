@@ -66,9 +66,9 @@ const Gradient = ({ id }) => {
   };
 
   return (
-    <div className={cn("flex-column", "container", s.container)}>
+    <div className={cn("flex-column", s.container)}>
       <div className={s.gradientColor} ref={ref}></div>
-      <div className={s.gradiendDesc}>
+      <div className={cn("container", s.gradiendDesc)}>
         <div className="flex-row">{_renderColors()}</div>
         <div className={s.gradientDescText}>
           <div className={cn("flex-row", "flex-wrap")}>

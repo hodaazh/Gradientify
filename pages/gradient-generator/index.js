@@ -29,7 +29,7 @@ const GradientGenerator = () => {
     const [clr1, clr2, clr3, clr4, clr5] = generateColors(
       inputLeft,
       inputRight
-    );  
+    );
     const containerClass = `${dir}-gradient(to ${ori}, ${clr1}, ${clr2},${clr3},${clr4},${clr5})`;
     mainRef.current.style.backgroundImage = containerClass;
     textRef.current.innerText = `background: ${containerClass}`;
@@ -62,50 +62,53 @@ const GradientGenerator = () => {
   };
 
   return (
-    <div
-      className={cn("container", "flex-column", "flex-center", s.container)}
-      ref={mainRef}
-    >
-      <h1>{isPhone ? "Generate" : "Generate a CSS Color Gradient"}</h1>
-      <p className={s.desc}>Choose orientation</p>
-      <div className={cn("flex-center", "flex-wrap")}>
-        {generatorItems.map(({ id, icon, title }) => (
-          <Button
-            key={id}
-            icon={icon}
-            iconClassName={s.icon}
-            onClick={() => handleArrow(title)}
-          />
-        ))}
+    <div ref={mainRef} className={cn(s.container, "flex-center")}>
+      <div className={cn("container", "flex-column", "flex-center")}>
+        <h1>{isPhone ? "Generate" : "Generate a CSS Color Gradient"}</h1>
+        <p className={s.desc}>Choose orientation</p>
+        <div className={cn("flex-center", "flex-wrap")}>
+          {generatorItems.map(({ id, icon, title }) => (
+            <Button
+              key={id}
+              icon={icon}
+              iconClassName={s.icon}
+              onClick={() => handleArrow(title)}
+            />
+          ))}
+        </div>
+        <p>Enter Colors & press Enter</p>
+        <form
+          className={cn("flex-coumn", s.inputWrapper)}
+          type="submit"
+          onSubmit={handleSubmit}
+        >
+          <div className={cn("flex-row", "flex-center")}>
+            <input
+              className={cn(s.input, {
+                [s.darkText]: isHexTooLight(inputLeft),
+              })}
+              defaultValue={inputLeft}
+              style={{ backgroundColor: inputLeft }}
+              ref={inputLeftRef}
+            />
+            <input
+              className={cn(s.input, {
+                [s.darkText]: isHexTooLight(inputRight),
+              })}
+              defaultValue={inputRight}
+              style={{ backgroundColor: inputRight }}
+              ref={inputRightRef}
+            />
+          </div>
+          <button></button>
+          {!valid && <span className="flex-center"> color not valid </span>}
+          <div className={s.gradientCode}>
+            <p ref={textRef}>
+              {`background: linear-gradient(to top, #051937, #004d7a,#008793,#00bf72,#a8eb12)`}
+            </p>
+          </div>
+        </form>
       </div>
-      <p>Enter Colors & press Enter</p>
-      <form
-        className={cn("flex-coumn", s.inputWrapper)}
-        type="submit"
-        onSubmit={handleSubmit}
-      >
-        <div className={cn("flex-row", "flex-center")}>
-          <input
-            className={cn(s.input, { [s.darkText]: isHexTooLight(inputLeft) })}
-            defaultValue={inputLeft}
-            style={{ backgroundColor: inputLeft }}
-            ref={inputLeftRef}
-          />
-          <input
-            className={cn(s.input, { [s.darkText]: isHexTooLight(inputRight) })}
-            defaultValue={inputRight}
-            style={{ backgroundColor: inputRight }}
-            ref={inputRightRef}
-          />
-        </div>
-        <button></button>
-        {!valid && <span className="flex-center"> color not valid </span>}
-        <div className={s.gradientCode}>
-          <p ref={textRef}>
-            {`background: linear-gradient(to top, #051937, #004d7a,#008793,#00bf72,#a8eb12)`}
-          </p>
-        </div>
-      </form>
     </div>
   );
 };

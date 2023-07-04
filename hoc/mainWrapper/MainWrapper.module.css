@@ -1,8 +1,7 @@
 .mainDesc {
   display: flex;
   padding: 7rem 2.5rem;
-  background-image: url("https://gradientify.com/static/media/bg-aurora4.3b87804fabcfb32a2019.png");
-  background-repeat: no-repeat;
+  background: linear-gradient(to left, #c9bef3, #ffe5f9);
 }
 .mainDesc h1 {
   font-size: 3.3rem;

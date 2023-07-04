@@ -44,24 +44,26 @@ const TintsShades = () => {
 
   return (
     <div
-      className={cn("container", "flex-column", "justify-between", s.container)}
+      className={cn("flex-column", "justify-between", s.container)}
       onSubmit={handleSubmit}
     >
-      <form className={cn("flex-row", "flex-center", s.header)}>
-        <h3>Make Tints and Shades</h3>
-        <input placeholder="#f15025" onChange={setColorHandler} />
-        <Button
-          title="Generate"
-          titleClassName={s.generateTitle}
-          className={s.generateBtn}
-          buttonType="submit"
-        />
-        <div style={{ backgroundColor: input }}></div>
-      </form>
-      <div className={cn("flex-row", "flex-wrap")}>
-        {pallets.map((pallet, index) => (
-          <SimpleCard key={index} {...{ pallet }} />
-        ))}
+      <div className="container">
+        <form className={cn("flex-row", "flex-center", s.header)}>
+          <h3>Make Tints and Shades</h3>
+          <input placeholder="#f15025" onChange={setColorHandler} />
+          <Button
+            title="Generate"
+            titleClassName={s.generateTitle}
+            className={s.generateBtn}
+            buttonType="submit"
+          />
+          <div style={{ backgroundColor: input }}></div>
+        </form>
+        <div className={cn("flex-row", "flex-wrap")}>
+          {pallets.map((pallet, index) => (
+            <SimpleCard key={index} {...{ pallet }} />
+          ))}
+        </div>
       </div>
     </div>
   );

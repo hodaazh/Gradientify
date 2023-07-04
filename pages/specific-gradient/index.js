@@ -8,12 +8,14 @@ const SpecificGradient = () => {
   const { gradients } = SPECIFIC_GRADIENT_CONST;
 
   return (
-    <div className={cn("flex-center", "flex-wrap", s.container)}>
-      {gradients.map((item) => {
-        return item.map(({ id, colors }) => (
-          <SpecificCard key={id} {...{ colors, id }} />
-        ));
-      })}
+    <div>
+      <div className={cn("container", s.container)}>
+        {gradients.map((item) => {
+          return item.map(({ id, colors }) => (
+            <SpecificCard key={id} {...{ colors, id }} />
+          ));
+        })}
+      </div>
     </div>
   );
 };

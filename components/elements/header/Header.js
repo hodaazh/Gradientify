@@ -17,11 +17,13 @@ const Header = () => {
 
   return (
     <nav
-      className={cn("container", "flex-column", s.container, {
+      className={cn("flex-column", s.container, {
         [s.toggleActive]: isTablet && toggle,
       })}
     >
-      <div className={cn("flex-row", "justify-between", "align-base")}>
+      <div
+        className={cn("container", "flex-row", "justify-between", "align-base")}
+      >
         <Link href="/">
           <a>Gradientify</a>
         </Link>
@@ -36,8 +38,8 @@ const Header = () => {
                 </li>
               ))}
             </ul>
-            <Link href="#">
-              <a>Share To Twitter</a>
+            <Link href="https://github.com/hodaazh/Gradientify">
+              <a>GitHub</a>
             </Link>
           </>
         )}
@@ -52,7 +54,7 @@ export { Header };
 
 const ResponsiveMenu = ({ navItems }) => {
   return (
-    <ul className={cn("flex-column", s.responsiveContainer)}>
+    <ul className={cn("container", "flex-column", s.responsiveContainer)}>
       {navItems.map(({ title, id, href }) => (
         <li key={id}>
           <Link href={href}>
