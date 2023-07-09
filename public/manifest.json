@@ -4,9 +4,9 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "Next-PWA",
-  "short_name": "Next-PWA",
-  "description": "A Demo for Next-PWA",
+  "name": "Gradientify",
+  "short_name": "Gradientify",
+  "description": "A Demo for Gradientify",
   "icons": [
     {
       "src": "/icon-192x192.png",
