@@ -78,7 +78,7 @@
   display: flex;
   flex: 1;
   max-width: 10rem;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .colorUsed {
   width: 0.7rem !important;
