@@ -3,4 +3,9 @@
   height: 20rem;
   background-color: white;
   bottom: 0;
+  flex-direction: column !important;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  z-index: 10000;
 }

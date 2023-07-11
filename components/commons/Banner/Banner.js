@@ -8,19 +8,15 @@ import s from "./Banner.module.css";
 const Banner = () => {
   const installBtnRef = useRef(null);
   const [ShowBanner, SetShowBanner] = useState(false);
-  let deferredPrompt = "";
+  let deferredPrompt;
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (e) => {
       console.log("eee", e);
       e.preventDefault();
       deferredPrompt = e;
-      try {
-        if (deferredPrompt) {
-          SetShowBanner(true);
-        }
-      } catch (error) {
-        return;
+      if (deferredPrompt) {
+        SetShowBanner(true);
       }
     };
 
@@ -44,25 +40,26 @@ const Banner = () => {
     if (!deferredPrompt) {
       return;
     }
-    try {
-      await deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      console.log(`User response to the install prompt: ${outcome}`);
+
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === "accepted") {
+        console.log("User accepted the A2HS prompt");
+      } else {
+        console.log("User dismissed the A2HS prompt");
+      }
       deferredPrompt = null;
-    } catch (error) {
-      console.log(error);
-    }
+    });
   };
 
   function handelCloseBanner(e) {
     e.preventDefault();
     SetShowBanner(false);
   }
-  console.log("_____________________");
   return (
     <div
       className={s.container}
-      style={{ display: ShowBanner ? "flex" : "flex" }}
+      style={{ display: ShowBanner ? "flex" : "none" }}
     >
       <p ref={installBtnRef}>ایا تمایل به نصب نسخه اپ دارید؟</p>
       <div
@@ -72,7 +69,9 @@ const Banner = () => {
           minWidth: "0px",
         }}
         onClick={handelCloseBanner}
-      ></div>
+      >
+        close
+      </div>
     </div>
   );
 };
