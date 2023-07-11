@@ -62,7 +62,7 @@ const Banner = () => {
   return (
     <div
       className={s.container}
-      style={{ display: ShowBanner ? "flex" : "none" }}
+      style={{ display: ShowBanner ? "flex" : "flex" }}
     >
       <p ref={installBtnRef}>ایا تمایل به نصب نسخه اپ دارید؟</p>
       <div
