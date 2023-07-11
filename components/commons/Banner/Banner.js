@@ -2,15 +2,17 @@
 // import CloseIcon from "@mui/icons-material/Close";
 // import { Button } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
+import s from "./Banner.module.css";
 // import { BannerContainer } from "./banner.styled";
 
-function Banner() {
+const Banner = () => {
   const installBtnRef = useRef(null);
   const [ShowBanner, SetShowBanner] = useState(false);
-  let deferredPrompt = { prompt: () => null, userChoice };
+  let deferredPrompt = "";
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (e) => {
+      console.log("eee", e);
       e.preventDefault();
       deferredPrompt = e;
       try {
@@ -44,14 +46,11 @@ function Banner() {
     }
     try {
       await deferredPrompt.prompt();
-      const choiceResult = await deferredPrompt.userChoice;
-      if (choiceResult.outcome === "accepted") {
-        return;
-      } else {
-        return;
-      }
+      const { outcome } = await deferredPrompt.userChoice;
+      console.log(`User response to the install prompt: ${outcome}`);
+      deferredPrompt = null;
     } catch (error) {
-      return;
+      console.log(error);
     }
   };
 
@@ -59,9 +58,12 @@ function Banner() {
     e.preventDefault();
     SetShowBanner(false);
   }
-
+  console.log("_____________________");
   return (
-    <div style={{ display: ShowBanner ? "flex" : "none" }}>
+    <div
+      className={s.container}
+      style={{ display: ShowBanner ? "flex" : "none" }}
+    >
       <p ref={installBtnRef}>ایا تمایل به نصب نسخه اپ دارید؟</p>
       <div
         style={{
@@ -73,6 +75,6 @@ function Banner() {
       ></div>
     </div>
   );
-}
+};
 
 export { Banner };

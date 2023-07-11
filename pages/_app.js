@@ -7,12 +7,9 @@ import { Banner } from "../components/commons";
 import { RotateProvider } from "../context";
 
 function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    <Banner />;
-  }, []);
-
   return (
     <RotateProvider>
+      <Banner />
       <Header />
       <Component {...pageProps} />
       <ToastContainer
