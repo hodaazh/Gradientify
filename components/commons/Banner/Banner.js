@@ -11,6 +11,30 @@ const Banner = () => {
   let deferredPrompt;
 
   useEffect(() => {
+    // window.addEventListener('DOMContentLoaded', () => {
+    //   if ('serviceWorker' in navigator) {
+    //     navigator.serviceWorker.ready.then(() => {
+    //       console.log('sw ready');
+    //     });
+
+    //     navigator.serviceWorker.register('/sw.js')
+    //     .then(() => {
+    //       console.log('sw registered');
+    //     });
+    //   }
+    // });
+
+    if (document.readyState !== "loading") {
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.ready.then(() => {
+          console.log("sw ready");
+        });
+        navigator.serviceWorker.register("/sw.js").then(() => {
+          console.log("sw registered");
+        });
+      }
+    }
+
     const handleBeforeInstallPrompt = (e) => {
       console.log("eee", e);
       e.preventDefault();

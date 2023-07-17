@@ -9,7 +9,7 @@ import { RotateProvider } from "../context";
 function MyApp({ Component, pageProps }) {
   return (
     <RotateProvider>
-      <Banner />
+      {/* <Banner /> */}
       <Header />
       <Component {...pageProps} />
       <ToastContainer
