@@ -7,6 +7,21 @@ import { Banner } from "../components/commons";
 import { RotateProvider } from "../context";
 
 function MyApp({ Component, pageProps }) {
+  // useEffect(() => {
+  //   if ("serviceWorker" in navigator) {
+  //     navigator.serviceWorker.register("/public/sw.js").then(
+  //       (registration) => {
+  //         console.log("Service worker registration succeeded:", registration);
+  //       },
+  //       (error) => {
+  //         console.error(`Service worker registration failed: ${error}`);
+  //       }
+  //     );
+  //   } else {
+  //     console.error("Service workers are not supported.");
+  //   }
+  // }, []);
+
   return (
     <RotateProvider>
       {/* <Banner /> */}
